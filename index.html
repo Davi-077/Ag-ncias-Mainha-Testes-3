@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agência Mainha</title>
+  <link rel="stylesheet" href="CSS/style.css">
+
+  <style>
+    /* Mantém o visual da página anterior e troca APENAS os textos centrais pela logo. */
+    .home-logo-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: calc(100vh - 75px);
+      padding: 40px 20px 60px;
+      text-align: center;
+    }
+
+    .home-logo {
+      display: block;
+      width: min(560px, 82vw);
+      height: auto;
+      max-height: 62vh;
+      object-fit: contain;
+      margin: 0 auto 22px;
+    }
+
+    .home-actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 0;
+    }
+
+    .home-actions .btn {
+      display: inline-block;
+    }
+
+    @media (max-width: 700px) {
+      .home-logo {
+        width: min(460px, 88vw);
+        max-height: 55vh;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="pacotes.html">Pacotes</a>
+      <a href="clube.html">Mainha Club</a>
+      <a href="quem-somos.html">Quem Somos</a>
+    </nav>
+  </header>
+
+  <main class="hero">
+    <div class="home-logo-area">
+
+      <!-- A única alteração visual: a logo substitui os textos "Agência Mainha"
+           e "Viagens inesquecíveis para o Nordeste". -->
+      <img
+        src="imagens/logo-agencia-mainha.png"
+        alt="Agência Mainha"
+        class="home-logo"
+      >
+
+      <!-- Os botões continuam na tela inicial. -->
+      <div class="home-actions">
+        <a class="btn" href="pacotes.html">Ver pacotes</a>
+        <a class="btn secondary" href="clube.html">Mainha Club</a>
+      </div>
+
+    </div>
+  </main>
+</body>
+</html>
