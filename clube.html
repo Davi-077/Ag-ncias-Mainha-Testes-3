@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mainha Club | Agência Mainha</title>
+<link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+<header><nav>
+<a href="index.html">Início</a>
+<a href="pacotes.html">Pacotes</a>
+<a href="clube.html">Mainha Club</a>
+<a href="quem-somos.html">Quem Somos</a>
+</nav></header>
+
+<main class="container">
+<section class="club-hero">
+<span class="eyebrow">MAINHA CLUB</span>
+<h1>Consulte seu cashback</h1>
+<p>Digite seu nome para consultar sua categoria e seu cashback disponível.</p>
+</section>
+
+<section class="section cashback-box">
+<label for="nome-cliente">Nome</label>
+<input id="nome-cliente" type="text" placeholder="Digite seu nome">
+
+<button class="btn" onclick="consultarCashback()">Consultar cashback</button>
+
+<div id="resultado" class="cashback-result" aria-live="polite"></div>
+</section>
+</main>
+
+<script>
+const clientes = {
+  "Rafael Fama": {categoria:"Mainha", cashback:600},
+  "Richard": {categoria:"Mainha", cashback:600},
+  "Pedrinho": {categoria:"Prata", cashback:400},
+  "Pietro Noal": {categoria:"Prata", cashback:400},
+  "Victor Lerry": {categoria:"Bronze", cashback:150},
+  "Miguel Tolentino": {categoria:"Bronze", cashback:150}
+};
+
+function consultarCashback() {
+  const nome = document.getElementById("nome-cliente").value.trim();
+  const resultado = document.getElementById("resultado");
+  const cliente = clientes[nome];
+
+  if (!cliente) {
+    resultado.innerHTML = "<p class='error'>Nome não encontrado. Confira a forma como o nome foi cadastrado.</p>";
+    return;
+  }
+
+  resultado.innerHTML = `
+    <div class="cashback-card">
+      <span class="tag">${cliente.categoria}</span>
+      <h2>${nome}</h2>
+      <p>Seu cashback disponível:</p>
+      <strong>R$ ${cliente.cashback.toLocaleString("pt-BR")}</strong>
+    </div>
+  `;
+}
+</script>
+</body>
+</html>
